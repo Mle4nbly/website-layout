@@ -7,18 +7,26 @@
     </div>
     <div class="navbar__group">
       <div class="navbar__menu">
-        <div class="navbar__item">
+        <NuxtLink class="navbar__link">
           Аппаратура
-        </div>
-        <div class="navbar__item">
-          Люди
-        </div>
-        <div class="navbar__item">
-          Пространство
-        </div>
-        <div class="navbar__item">
+        </NuxtLink>
+        <NuxtLink 
+          to="/specialists"
+          class="navbar__link"
+          active-class="navbar__link--active"
+        >
+          <span>Люди</span>
+        </NuxtLink>
+        <NuxtLink 
+          to="/"
+          class="navbar__link"
+          active-class="navbar__link--active"
+        >
+          <span>Пространство</span>
+        </NuxtLink>
+        <NuxtLink class="navbar__link">
           Профиль
-        </div>
+        </NuxtLink>
       </div>
       <div class="navbar__profile">
         <img src="/icons/profile-icon.svg" alt="profile-icon">
@@ -54,7 +62,10 @@
   width: 876px;
 }
 
-.navbar__item {
+.navbar__link {
+  text-decoration: none;
+  color: white;
+
   display: flex;
   align-items: center;
 
@@ -62,5 +73,14 @@
 
   font-size: 24px;
   font-weight: 600;
+
+  padding: 4px 0;
+
+  &.navbar__link--active {
+    text-decoration: none;
+    color: white;
+
+    border-bottom: 1px solid white;
+  }
 }
 </style>

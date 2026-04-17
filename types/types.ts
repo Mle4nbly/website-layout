@@ -1,3 +1,10 @@
+export type Specialist = {
+  name: string,
+  avatar: string,
+  description: string,
+  speciality: string
+}
+
 export type Sender = {
   name: string,
   speciality: string

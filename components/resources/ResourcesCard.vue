@@ -15,11 +15,11 @@ defineProps<{
       <img class="resource-card__image" :src="preview" alt="resource-preview">
 
       <div class="resource-card__overlay">
-        <div class="resource-card__tags">
+        <div class="resource-card__badges">
           <div
             v-for="(tag, index) in tags"
             :key="index"
-            class="resource-card__tag"
+            class="badge"
           >
             {{ tag }}
           </div>
@@ -37,6 +37,11 @@ defineProps<{
 </template>
 
 <style scoped>
+.badge {
+  padding: 8px 25px;
+  font-weight: 400;
+}
+
 .resource-card {
   display: flex;
   flex-direction: column;
@@ -70,12 +75,14 @@ defineProps<{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
-.resource-card__tags {
+.resource-card__badges {
   display: flex;
 
-  margin: 16px 17px;
+  margin-top: 17px;
+  margin-left: 16px;
   gap: 25px;
 }
 
@@ -94,7 +101,8 @@ defineProps<{
   border-radius: 5px;
 
   padding: 8px 20px;
-  margin: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .resource-card__reservation {

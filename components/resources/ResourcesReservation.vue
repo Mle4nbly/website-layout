@@ -10,21 +10,21 @@ defineProps<{
 
 <template>
   <div class="reservation">
-    <div class="reservation__slots">
+    <div class="reservation__badges">
       <div 
         v-for="slot in timeSlots"
         :key="slot.id"
-        class="reservation__slot"
-        :class="{'reservation__slot--disabled': !slot.available}"
+        class="badge badge--primary"
+        :class="{'badge badge--secondary': !slot.available}"
       >
         {{ slot.time }}
       </div>
     </div>
     <div class="reservation__actions">
-      <button class="reservation__btn reservation__btn--primary">
+      <button class="btn btn--primary">
         Забронировать
       </button>
-      <button class="reservation__btn reservation__btn--secondary">
+      <button class="btn btn--secondary">
         Подробнее
       </button>
     </div>
@@ -39,30 +39,15 @@ defineProps<{
   gap: 30px;
 }
 
-.reservation__slots {
+.reservation__badges {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   width: 938px;
   row-gap: 10px;
 }
 
-.reservation__slot {
-  font-size: 14px;
-  font-weight: 400;
-
-  border-radius: 6px;
-  text-wrap: nowrap;
-
+.badge {
   width: 145px;
-
-  background-color: rgba(134, 174, 170, 1);
-  color: rgb(255, 255, 255);
-  padding: 10px 30px;
-}
-
-.reservation__slot--disabled {
-  background-color: rgba(220, 231, 230, 1);
-  color: rgba(0, 0, 0, 1);
 }
 
 .reservation__actions {
@@ -72,25 +57,5 @@ defineProps<{
   flex-direction: column;
 
   gap: 10px;
-}
-
-.reservation__btn {
-  font-size: 14px;
-  font-weight: 700;
-
-  padding: 10px 25px;
-  border-radius: 6px;
-
-  &.reservation__btn--primary {
-    background-color: rgba(67, 113, 107, 1);
-    color: rgba(255, 255, 255, 1);
-  }
-
-  &.reservation__btn--secondary {
-    background-color: rgba(255, 255, 255, 1);
-    color: rgb(0, 0, 0);
-
-    box-shadow: 0 0 10px rgba(81, 114, 163, 0.2);
-  }
 }
 </style>

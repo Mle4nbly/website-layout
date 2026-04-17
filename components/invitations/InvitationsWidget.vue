@@ -26,14 +26,13 @@ const activeInvitations: Invitation[] = [
     <div class="invitations__title">
       Активные приглашения
     </div>
-
+    <InvitationsCard 
+      v-for="invitation in activeInvitations"
+      :title="invitation.title"
+      :time="invitation.time"
+      :specialist="invitation.sender"
+    />
     <div class="invitations__cards">
-      <InvitationsCard 
-        v-for="invitation in activeInvitations"
-        :title="invitation.title"
-        :time="invitation.time"
-        :sender="invitation.sender"
-      />
     </div>
   </div>
 </template>

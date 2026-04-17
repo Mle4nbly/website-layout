@@ -13,8 +13,6 @@
 }
 
 .hero-actions__btn {
-  cursor: pointer;
-
   font-size: 32px;
   font-weight: 600;
 
@@ -24,5 +22,8 @@
   border-radius: 47px;
 
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 </style>

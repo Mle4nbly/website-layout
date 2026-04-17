@@ -4,37 +4,41 @@ import type { Sender } from '~/types/types';
 defineProps<{
   title: string,
   time: string,
-  sender: Sender
+  specialist: Sender
 }>()
 </script>
 
 <template>
-  <div class="invitation__card">
-    <div class="invitation__title">
+  <div class="invitation-card__card">
+    <div class="invitation-card__title">
       {{ title }}
     </div>
 
-    <div class="invitation__info">
-      <div class="invitation__badge">
+    <div class="invitation-card__info">
+      <div class="badge badge--primary">
         {{ time }}
       </div>
-      <div class="invitation__badge">
-        {{ sender.name }}
+      <div class="badge badge--primary">
+        {{ specialist.name }}
       </div>
-      <div class="invitation__badge">
-        {{ sender.speciality }}
+      <div class="badge badge--primary">
+        {{ specialist.speciality }}
       </div>
     </div>
 
-    <div class="invitation__actions">
-      <button class="invitation__btn invitation__btn--primary">Подробнее</button>
-      <button class="invitation__btn invitation__btn--secondary">Отклонить</button>
+    <div class="invitation-card__actions">
+      <button class="btn btn--primary">Подробнее</button>
+      <button class="btn btn--secondary">Отклонить</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-.invitation__card {
+.badge {
+  padding: 5px 16px;
+}
+
+.invitation-card__card {
   display: flex;
   flex-direction: column;
 
@@ -46,17 +50,17 @@ defineProps<{
   gap: 16px;
 }
 
-.invitation__title {
+.invitation-card__title {
   font-size: 16px;
   font-weight: 600;
 }
 
-.invitation__info {
+.invitation-card__info {
   display: flex;
   gap: 10px;
 }
 
-.invitation__badge {
+.invitation-card__badge {
   padding: 5px 16px;
 
   background-color: rgba(134, 174, 170, 1);
@@ -67,21 +71,21 @@ defineProps<{
   color: rgba(255, 255, 255, 1);
 }
 
-.invitation__actions {
+.invitation-card__actions {
   display: flex;
   gap: 10px;
 }
 
-.invitation__btn {
+.invitation-card__btn {
   padding: 10px 30px;
   border-radius: 6px;
 
-  &.invitation__btn--primary {
+  &.invitation-card__btn--primary {
     background-color: rgba(67, 113, 107, 1);
     color: rgba(255, 255, 255, 1);
   }
 
-  &.invitation__btn--secondary {
+  &.invitation-card__btn--secondary {
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
 

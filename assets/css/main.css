@@ -10,7 +10,66 @@
 
 button {
   all: unset;
+  cursor: pointer;
+}
 
-  background-color: rgba(255, 255, 255, 1);
-  color: rgba(0, 0, 0, 1);
+input {
+  all: unset;
+}
+
+select {
+  all: unset;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+
+  padding: 10px 30px;
+  gap: 10px;
+
+  font-size: 14px;
+  text-align: center;
+
+  &.btn--primary {
+    font-weight: 700;
+
+    background-color: rgb(67, 113, 107);
+    color: rgb(255, 255, 255);
+  }
+
+  &.btn--secondary {
+    font-weight: 400;
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgba(81, 114, 163, 0.2);
+  }
+}
+
+.badge {
+  border-radius: 6px;
+
+  padding: 10px 30px;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-wrap: nowrap;
+
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+
+  &.badge--primary {
+    background-color: rgba(134, 174, 170);
+    color: rgb(255, 255, 255);
+  }
+
+  &.badge--secondary {
+    font-weight: 400;
+
+    background-color: rgba(220, 231, 230);
+    color: rgb(0, 0, 0);
+  }
 }

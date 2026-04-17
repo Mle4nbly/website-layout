@@ -73,18 +73,18 @@ const calendarDays = computed<Day[]>(() => {
       <div class="calendar__current">
         <span class="calendar__title">Декабрь 2023</span>
 
-        <div class="calendar__arrow calendar__arrow--next">
+        <button class="calendar__arrow calendar__arrow--next">
           <img src="/icons/arrow-button.svg" alt="arrow-next">
-        </div>
+        </button>
       </div>
 
       <div class="calendar__navigation">
-        <div class="calendar__arrow calendar__arrow--prev">
+        <button class="calendar__arrow calendar__arrow--prev">
           <img src="/icons/arrow-button.svg" alt="arrow-prev">
-        </div>
-        <div class="calendar__arrow calendar__arrow--next">
+        </button>
+        <button class="calendar__arrow calendar__arrow--next">
           <img src="/icons/arrow-button.svg" alt="arrow-next">
-        </div>
+        </button>
       </div>
     </div>
 
@@ -182,7 +182,7 @@ const calendarDays = computed<Day[]>(() => {
   }
 
   &.calendar__day--muted {
-    color: rgba(104, 104, 104, 1);
+    opacity: 0.6;
   }
 }
 
