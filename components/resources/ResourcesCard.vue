@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TimeSlot } from './ResourcesSection.vue';
+import type { TimeSlot } from '~/types/types';
 
 defineProps<{
   title: string
@@ -10,34 +10,34 @@ defineProps<{
 </script>
 
 <template>
-  <div class="resources-card">
-    <div class="resources-card__preview">
-      <img class="resources-card__image" :src="preview" alt="resource-preview">
+  <div class="resource-card">
+    <div class="resource-card__preview">
+      <img class="resource-card__image" :src="preview" alt="resource-preview">
 
-      <div class="resources-card__overlay">
-        <div class="resources-card__tags">
+      <div class="resource-card__overlay">
+        <div class="resource-card__tags">
           <div
-            v-for="(tag, id) in tags"
-            :key="id"
-            class="resources-card__tag"
+            v-for="(tag, index) in tags"
+            :key="index"
+            class="resource-card__tag"
           >
             {{ tag }}
           </div>
         </div>
-        <div class="resources-card__title">
+        <div class="resource-card__title">
           {{ title }}
         </div>
       </div>
     </div>
     
-    <div class="resources-card__reservation">
+    <div class="resource-card__reservation">
       <ResourcesReservation :time-slots="timeSlots"/>
     </div>
   </div>
 </template>
 
 <style scoped>
-.resources-card {
+.resource-card {
   display: flex;
   flex-direction: column;
 
@@ -50,19 +50,19 @@ defineProps<{
   overflow: hidden;
 }
 
-.resources-card__preview {
+.resource-card__preview {
   position: relative;
   height: 260px;
 }
 
-.resources-card__image {
+.resource-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.resources-card__overlay {
+.resource-card__overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -72,21 +72,21 @@ defineProps<{
   justify-content: space-between;
 }
 
-.resources-card__tags {
+.resource-card__tags {
   display: flex;
 
   margin: 16px 17px;
   gap: 25px;
 }
 
-.resources-card__tag {
+.resource-card__tag {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 6px;
 
   padding: 8px 25px;
 }
 
-.resources-card__title {
+.resource-card__title {
   font-size: 20px;
   font-weight: 600;
 
@@ -97,7 +97,7 @@ defineProps<{
   margin: 10px;
 }
 
-.resources-card__reservation {
+.resource-card__reservation {
   margin: 16px;
 }
 </style>

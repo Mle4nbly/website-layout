@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import type { TimeSlot } from './ResourcesSection.vue';
+import type { TimeSlot } from '~/types/types';
+
+
 
 defineProps<{
   timeSlots: TimeSlot[]
@@ -78,17 +80,17 @@ defineProps<{
 
   padding: 10px 25px;
   border-radius: 6px;
-}
 
-.reservation__btn--primary {
-  background-color: rgba(67, 113, 107, 1);
-  color: rgba(255, 255, 255, 1);
-}
+  &.reservation__btn--primary {
+    background-color: rgba(67, 113, 107, 1);
+    color: rgba(255, 255, 255, 1);
+  }
 
-.reservation__btn--secondary {
-  background-color: rgba(255, 255, 255, 1);
-  color: rgb(0, 0, 0);
+  &.reservation__btn--secondary {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgb(0, 0, 0);
 
-  box-shadow: 0 0 10px rgba(81, 114, 163, 0.2);
+    box-shadow: 0 0 10px rgba(81, 114, 163, 0.2);
+  }
 }
 </style>

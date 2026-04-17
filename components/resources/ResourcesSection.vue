@@ -1,16 +1,5 @@
 <script setup lang="ts">
-type Resource = {
-  id: number
-  title: string
-  preview: string
-  tags: string[]
-}
-
-export type TimeSlot = {
-  id: number
-  time: string
-  available: boolean
-}
+import type { Resource, TimeSlot } from '~/types/types';
 
 const resources: Resource[] = [
   {
