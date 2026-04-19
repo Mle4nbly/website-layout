@@ -1,70 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { weekDays } from '~/data/constants';
 
-type Day = {
-  day: number
-  isCurrent: boolean
-  isToday: boolean
-  isWeekend: boolean
-}
-
-const year = 2023
-const month = 11
-const today = 13
-
-const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-
-const calendarDays = computed<Day[]>(() => {
-  const firstDay = new Date(year, month, 1).getDay()
-  const daysInMonth = new Date(year, month + 1, 0).getDate()
-
-  const prevDaysCount = firstDay === 0 ? 6 : firstDay - 1
-  const prevMonthDays = new Date(year, month, 0).getDate()
-
-  const prevDays: Day[] = Array.from({ length: prevDaysCount }, (_, index) => {
-    const day = prevMonthDays - prevDaysCount + 1 + index
-    const date = new Date(year, month - 1, day)
-    const weekDay = date.getDay()
-
-    return {
-      day,
-      isCurrent: false,
-      isToday: false,
-      isWeekend: weekDay === 0 || weekDay === 6,
-    }
-  })
-
-  const currentDays: Day[] = Array.from({ length: daysInMonth }, (_, index) => {
-    const day = index + 1
-    const date = new Date(year, month, day)
-    const weekDay = date.getDay()
-
-    return {
-      day,
-      isCurrent: true,
-      isToday: day === today,
-      isWeekend: weekDay === 0 || weekDay === 6,
-    }
-  })
-
-  const filledCount = prevDays.length + currentDays.length
-  const nextDaysCount = 42 - filledCount
-
-  const nextDays: Day[] = Array.from({ length: nextDaysCount }, (_, index) => {
-    const day = index + 1
-    const date = new Date(year, month + 1, day)
-    const weekDay = date.getDay()
-
-    return {
-      day,
-      isCurrent: false,
-      isToday: false,
-      isWeekend: weekDay === 0 || weekDay === 6,
-    }
-  })
-
-  return [...prevDays, ...currentDays, ...nextDays]
-})
+const calendar = computed(() => 
+  calendarDays()
+)
 </script>
 
 <template>
@@ -99,7 +39,7 @@ const calendarDays = computed<Day[]>(() => {
 
     <div class="calendar__grid">
       <div 
-        v-for="(day, index) in calendarDays"
+        v-for="(day, index) in calendar"
         :key="index"
         class="calendar__cell"
       >
@@ -171,18 +111,18 @@ const calendarDays = computed<Day[]>(() => {
   border-radius: 15px;
   letter-spacing: -0.3px;
 
-  &.calendar__day--today {
-    color: rgb(255, 255, 255);
-
-    background-color: rgba(67, 113, 107, 1);
-  }
-
   &.calendar__day--weekend {
     color: rgba(255, 0, 0, 1);
   }
 
   &.calendar__day--muted {
     opacity: 0.6;
+  }
+
+  &.calendar__day--today {
+    color: rgb(255, 255, 255);
+
+    background-color: rgba(67, 113, 107, 1);
   }
 }
 

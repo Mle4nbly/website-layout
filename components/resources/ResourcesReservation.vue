@@ -1,11 +1,26 @@
 <script setup lang="ts">
-import type { TimeSlot } from '~/types/types';
-
-
+import { reservationTimeSlots, responsibles } from '~/data/constants';
+import type { ReservationModalProps, TimeSlot } from '~/types/types';
 
 defineProps<{
   timeSlots: TimeSlot[]
-}>()
+}>();
+
+const modalType = ref<'reservation' | 'error' | null>(null)
+const modalProps = ref<ReservationModalProps | null>(null)
+
+const openReservation = () => {
+  modalType.value = 'reservation';
+  modalProps.value = {responsibles, timeSlots: reservationTimeSlots}
+}
+
+const openError = () => {
+  modalType.value = 'error';
+}
+
+const closeModal = () => {
+  modalType.value = null;
+}
 </script>
 
 <template>
@@ -21,7 +36,7 @@ defineProps<{
       </div>
     </div>
     <div class="reservation__actions">
-      <button class="btn btn--primary">
+      <button class="btn btn--primary" @click="openReservation">
         Забронировать
       </button>
       <button class="btn btn--secondary">
@@ -29,6 +44,14 @@ defineProps<{
       </button>
     </div>
   </div>
+
+  <ModalsBaseModal 
+    v-if="modalType"
+    :modal-type="modalType" 
+    :modal-props="modalProps"
+    @close="closeModal"
+    @open-error="openError"
+  />
 </template>
 
 <style scoped>

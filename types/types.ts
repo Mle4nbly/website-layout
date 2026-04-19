@@ -1,3 +1,8 @@
+export type ReservationModalProps = {
+  responsibles: string[],
+  timeSlots: TimeSlot[]
+}
+
 export type Specialist = {
   name: string,
   avatar: string,

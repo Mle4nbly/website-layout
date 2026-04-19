@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('/components/modals/modal-form.css');
 
 * {
   font-family: 'Nunito Sans';
@@ -9,8 +10,10 @@
 }
 
 button {
+
   all: unset;
   cursor: pointer;
+
 }
 
 input {
@@ -22,6 +25,10 @@ select {
 }
 
 .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
   border: none;
   border-radius: 6px;
 
@@ -44,6 +51,14 @@ select {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     box-shadow: 0 0 10px rgba(81, 114, 163, 0.2);
+  }
+
+  &.btn--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0;
   }
 }
 

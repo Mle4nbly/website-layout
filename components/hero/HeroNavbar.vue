@@ -1,9 +1,28 @@
+<script setup lang="ts">
+import Dropdown from '../ui/Dropdown.vue';
+
+const modalType = ref<'error' | 'create' | null>(null)
+
+const openCreate = () => {
+  modalType.value = 'create';
+}
+
+const openError = () => {
+  modalType.value = 'error';
+}
+
+const closeModal = () => {
+  modalType.value = null;
+}
+
+</script>
+
 <template>
   <div class="navbar">
     <div class="navbar__group">
-      <div class="navbar__logo">
+      <button class="btn btn--icon" @click="openCreate">
         <img src="/icons/checkbox-edit-pen-pencil.svg" width="64px" height="64px" alt="checkbox-edit-pen-pencil">
-      </div>
+      </button>
     </div>
     <div class="navbar__group">
       <div class="navbar__menu">
@@ -28,11 +47,16 @@
           Профиль
         </NuxtLink>
       </div>
-      <div class="navbar__profile">
-        <img src="/icons/profile-icon.svg" alt="profile-icon">
-      </div>
+      <Dropdown />
     </div>
   </div>
+  <ModalsBaseModal 
+    v-if="modalType"
+    :modal-type="modalType"
+    :modal-props="null"
+    @close="closeModal"
+    @open-error="openError"
+  />
 </template>
 
 <style scoped>
@@ -41,8 +65,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: rgba(21, 21, 20, 1);
-  opacity: 0.8;
+  background-color: rgba(21, 21, 20, 0.8);
 
   padding: 10px 50px;
 }

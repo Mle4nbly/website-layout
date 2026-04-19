@@ -9,5 +9,7 @@
 .dashboard {
   margin-top: 26px;
   margin-bottom: 68px;
+
+  gap: 61px;
 }
 </style>

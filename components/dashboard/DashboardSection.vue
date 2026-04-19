@@ -13,7 +13,7 @@
 <style scoped>
 .dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   margin-right: 100px;
   margin-left: 100px;
