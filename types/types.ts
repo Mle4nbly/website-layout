@@ -36,7 +36,6 @@ export type Resource = {
 }
 
 export type TimeSlot = {
-  id: number
   time: string
   available: boolean
 }

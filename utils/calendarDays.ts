@@ -1,9 +1,9 @@
 import type { Day } from "~/types/types"
 
-export const calendarDays = () => {
-  const year = 2023
-  const month = 11
-  const today = 13
+export const calendarDays = (currentDate: Date) => {
+  const year = currentDate.getFullYear()
+  const month = currentDate.getMonth()
+  const today = currentDate.getDate()
 
   const firstDay = new Date(year, month, 1).getDay()
   const daysInMonth = new Date(year, month + 1, 0).getDate()

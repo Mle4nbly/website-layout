@@ -25,5 +25,11 @@
 
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
+
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: rgb(240, 240, 240);
+  }
 }
 </style>

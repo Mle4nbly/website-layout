@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import type { TimeSlot } from '~/types/types';
 
-defineProps<{
-  timeSlots: TimeSlot[],
+const props = defineProps<{
+  slots: TimeSlot[],
   responsibles: string[]
 }>();
 
 const emit = defineEmits(['close', 'open-error']);
+
+const timeSlots = ref<TimeSlot[]>(
+  props.slots.map(slot => ({ ...slot }))
+);
 
 const closeModal = () => {
   emit('close')
@@ -39,15 +43,21 @@ const openError = () => {
     <section class="modal-form__section">
       <div class="modal-form__subtitle">Выберите время мероприятия</div>
       <div class="modal-form__grid">
-        <div 
-          v-for="slot in timeSlots"
-          :key="slot.id"
-          class="badge badge--primary"
-          :class="{'badge--secondary': !slot.available}"
+        <button 
+          v-for="slot, id in timeSlots"
+          :key="id"
+          class="badge"
+          :class="{
+            'badge--secondary': !slot.available,
+            'badge--primary': slot.available
+          }"
           type="button"
+          @click="() => {
+            slot.available = !slot.available
+          }"
         >
           {{ slot.time }}
-        </div>
+        </button>
       </div>
     </section>
 

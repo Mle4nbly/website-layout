@@ -27,10 +27,13 @@ const closeModal = () => {
   <div class="reservation">
     <div class="reservation__badges">
       <div 
-        v-for="slot in timeSlots"
-        :key="slot.id"
-        class="badge badge--primary"
-        :class="{'badge badge--secondary': !slot.available}"
+        v-for="slot, id in timeSlots"
+        :key="id"
+        class="badge"
+        :class="{
+          'badge--secondary': !slot.available,
+          'badge--primary': slot.available,
+        }"
       >
         {{ slot.time }}
       </div>

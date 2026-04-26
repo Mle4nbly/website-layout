@@ -5,11 +5,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  app: {
-    baseURL: './'
-  },
-
   ssr: false,
+
+  app: {
+    baseURL: '/website-layout/'
+  },
 
   nitro: {
     preset: 'static',

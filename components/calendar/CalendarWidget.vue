@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { useCalendar } from '~/composables/useCalendar'
 import { weekDays } from '~/data/constants';
 
-const calendar = computed(() => 
-  calendarDays()
-)
+const { days, title } = useCalendar()
 </script>
 
 <template>
   <div class="calendar">
     <div class="calendar__header">
       <div class="calendar__current">
-        <span class="calendar__title">Декабрь 2023</span>
+        <span class="calendar__title">{{ title }}</span>
 
         <button class="calendar__arrow calendar__arrow--next">
           <img src="/icons/arrow-button.svg" alt="arrow-next">
@@ -39,7 +37,7 @@ const calendar = computed(() =>
 
     <div class="calendar__grid">
       <div 
-        v-for="(day, index) in calendar"
+        v-for="(day, index) in days"
         :key="index"
         class="calendar__cell"
       >

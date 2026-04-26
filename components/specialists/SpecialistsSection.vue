@@ -1,56 +1,5 @@
 <script setup lang="ts">
-import type { Specialist } from '~/types/types';
-
-const specialists: Specialist[] = [
-  {
-    name: 'Иван Иванов',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/ivan-photo.png'
-  },
-  {
-    name: 'Анастасия Ремогузина',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/anastasia-photo.png'
-  },
-  {
-    name: 'Иван Иванов',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/ivan-photo.png'
-  },
-  {
-    name: 'Анастасия Ремогузина',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/anastasia-photo.png'
-  },
-  {
-    name: 'Иван Иванов',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/ivan-photo.png'
-  },
-  {
-    name: 'Анастасия Ремогузина',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/anastasia-photo.png'
-  },
-  {
-    name: 'Иван Иванов',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/ivan-photo.png'
-  },
-  {
-    name: 'Анастасия Ремогузина',
-    speciality: 'Фотограф',
-    description: 'Высококачественная видеосъёмка и аэросъёмка: доступные цены, профессиональное оборудование и опытные специалисты',
-    avatar: '/images/anastasia-photo.png'
-  }
-]
+import { specialists } from '~/data/constants';
 </script>
 
 <template>
@@ -116,5 +65,9 @@ const specialists: Specialist[] = [
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -1%;
+
+  &:hover {
+    background-color: rgb(233, 233, 233);
+  }
 }
 </style>

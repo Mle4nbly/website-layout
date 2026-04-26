@@ -27,7 +27,7 @@ const openError = () => emit('open-error')
         <ModalsReservationModal 
           v-if="modalType === 'reservation' && modalProps" 
           :responsibles="modalProps.responsibles" 
-          :time-slots="modalProps.timeSlots"
+          :slots="modalProps.timeSlots"
           @close="closeModal"
           @open-error="openError"
         />

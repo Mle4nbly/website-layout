@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { responsibles } from '~/data/constants';
+import type { TimeSlot } from '~/types/types';
 
-const timeSlots = generateTimeSlots()
+const timeSlots = ref<TimeSlot[]>(generateTimeSlots())
 
 const emit = defineEmits(['close', 'open-error']);
 
@@ -33,14 +34,19 @@ const openError = () => {
     <section class="modal-form__section">
       <div class="modal-form__subtitle">Выберите время мероприятия</div>
       <div class="modal-form__grid">
-        <div 
+        <button 
           v-for="slot, id in timeSlots"
           :key="id"
-          class="badge badge--secondary"
+          class="badge"
+          :class="{
+            'badge--secondary': !slot.available,
+            'badge--primary': slot.available
+          }"
           type="button"
+          @click="() => {slot.available = !slot.available}"
         >
-          {{ slot }}
-        </div>
+          {{ slot.time }}
+        </button>
       </div>
     </section>
 
