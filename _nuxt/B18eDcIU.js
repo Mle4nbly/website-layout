@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as t,a as o,v as c}from"./CdzDnsPb.js";const n={},r={class:"app"},_={class:"main"};function d(e,l){return a(),t("div",r,[o("main",_,[c(e.$slots,"default")])])}const i=s(n,[["render",d]]);export{i as default};
